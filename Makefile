@@ -1,8 +1,14 @@
+.DEFAULT_GOAL := test
+SHELL := /usr/bin/env bash
+MAKEFLAGS += s
+
+APP_NAME := acestream-server
+
 build:
-	docker build -t acestream-debian .
+	docker build --compress -t ${APP_NAME} .
 
 test:
-	docker run --rm --name acestream -p 6878:6878 -it acestream-debian
+	docker run --rm --name ${APP_NAME} -p 6878:6878 -it ${APP_NAME}
 
 shell:
-	docker exec -it acestream bash
+	docker exec -it ${APP_NAME} bash

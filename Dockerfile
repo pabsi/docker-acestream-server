@@ -1,11 +1,11 @@
-FROM debian:8
+FROM debian:8-slim
 
 RUN apt-get update -qq && apt-get install --no-install-recommends -yqq \
 	net-tools pkg-config wget python python-dev libpython2.7 python-pip \
 	python-m2crypto python-setuptools gcc make libxslt1.1 \
 	&& apt-get clean -qq
 
-RUN pip install --download-cache /tmp/ wheel Cython==0.25.2 apsw
+RUN pip install --quiet --download-cache /tmp/ wheel Cython==0.25.2 apsw
 
 RUN mkdir /acestream \
 	&& wget -q http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz \
