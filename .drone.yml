@@ -10,5 +10,6 @@ steps:
     DOCKER_PASSWORD:
       from_secret: docker_password
   commands:
-    - make build
-    - make push
+    - apt-get update -qqq && apt-get install -yqq --no-install-recommends make curl
+    - curl -kfsSL https://get.docker.com | sh
+    - make build push
