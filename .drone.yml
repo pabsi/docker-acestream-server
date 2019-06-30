@@ -1,0 +1,14 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: debian:8-slim
+  environment:
+    DOCKER_USERNAME:
+      from_secret: docker_username
+    DOCKER_PASSWORD:
+      from_secret: docker_password
+  commands:
+    - make build
+    - make push
