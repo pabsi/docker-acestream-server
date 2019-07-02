@@ -3,13 +3,10 @@ name: default
 
 steps:
 - name: build
-  image: debian:8-slim
-  environment:
-    DOCKER_USERNAME:
+  image: plugins/docker
+  settings:
+    username:
       from_secret: docker_username
-    DOCKER_PASSWORD:
+    password:
       from_secret: docker_password
-  commands:
-    - apt-get update -qqq && apt-get install -yqq --no-install-recommends make curl
-    - curl -kfsSL https://get.docker.com | sh
-    - make build push
+    repo: pabsi/acestream-server
