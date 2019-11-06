@@ -8,8 +8,8 @@ In order to be able to use `play.sh` (a wrapper to play acestream links using th
 
 ### CI/CD status
 
-[![Docker Build](https://img.shields.io/docker/cloud/build/pabsi/acestream-server.svg)](https://hub.docker.com/repository/docker/pabsi/acestream-server/builds)
-[![Docker Automated](https://img.shields.io/docker/cloud/automated/pabsi/acestream-server.svg)](https://hub.docker.com/repository/docker/pabsi/acestream-server/builds)
+[![Docker Build](https://img.shields.io/docker/cloud/build/pabsi/acestream-server.svg)](https://hub.docker.com/r/pabsi/acestream-server/builds)
+[![Docker Automated](https://img.shields.io/docker/cloud/automated/pabsi/acestream-server.svg)](https://hub.docker.com/r/pabsi/acestream-server/builds)
 
 ### Docker Hub image stats
 
