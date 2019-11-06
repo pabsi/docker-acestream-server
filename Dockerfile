@@ -8,9 +8,8 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -yqq \
 RUN pip install --quiet --download-cache /tmp/ wheel Cython==0.25.2 apsw
 
 RUN mkdir /acestream \
-	&& wget -q http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz \
-	&& tar --strip-components=1 -xf acestream_3.1.16_debian_8.7_x86_64.tar.gz -C /acestream \
-	&& rm acestream_3.1.16_debian_8.7_x86_64.tar.gz
+	&& wget -q http://acestream.org/downloads/linux/acestream_3.1.49_debian_8.11_x86_64.tar.gz -O as.tar.gz \
+	&& tar xf as.tar.gz -C /acestream && rm as.tar.gz
 
 RUN apt-get remove --purge -yqq --force-yes \
 	pkg-config wget	gcc make binutils ca-certificates cpp cpp-4.9 gcc-4.9 libasan1 libatomic1 \
