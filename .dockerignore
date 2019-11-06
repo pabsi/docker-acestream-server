@@ -1,0 +1,5 @@
+# Do not build the image on every file change
+.git
+README.md
+Makefile
+play.sh
