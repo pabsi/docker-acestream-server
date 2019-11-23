@@ -2,19 +2,23 @@
 SHELL := /usr/bin/env bash
 MAKEFLAGS += s
 
+REPO_NAME := pabsi
 APP_NAME := acestream-server
-VERSION := 3.1.16
+IMAGE_NAME := ${REPO_NAME}/${APP_NAME}
+VERSION := 3.1.49
 
 build:
-	docker build --compress -t ${APP_NAME} . && \
-	docker tag acestream-server pabsi/acestream-server:$VERSION
+	docker build --compress -t ${IMAGE_NAME}:${VERSION} .
+	docker tag ${IMAGE_NAME}:${VERSION} ${IMAGE_NAME}:latest
 
 test:
-	docker run --rm --name ${APP_NAME} -P -it ${APP_NAME}
+	docker run --rm --name ${APP_NAME} -P -it ${IMAGE_NAME}
 
 shell:
+	docker run --rm -d --name ${APP_NAME} -P -it ${IMAGE_NAME}
 	docker exec -it ${APP_NAME} bash
+	docker stop -t1 ${APP_NAME}
 
 push:
-	docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-	docker push pabsi/acestream-server:$VERSION
+	docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+	docker push ${IMAGE_NAME}:${VERSION}
