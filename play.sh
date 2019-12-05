@@ -1,6 +1,6 @@
 #!/bin/sh
 echo -n "Starting ACE Stream Server... "
-docker run -d --rm --name acestream-server -p 6878:6878 -it acestream-server || exit 1
+docker run -d --rm --name acestream-server -p 6878:6878 -it pabsi/acestream-server || exit 1
 echo "ACE Stream Server started. Waiting for it to be ready..."
 
 while true
