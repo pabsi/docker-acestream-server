@@ -19,3 +19,13 @@ To facilitate the use of this repo, I included a Makefile with some simple targe
 - `test` will run the container in the foreground
 - `shell` will run the container in the background, and attach to the shell
 - `push` will push to a remote repo (dockerhub)
+
+## Extra
+
+If you want to run this docker container in a different machine (e.g. a server) from the one playing the stream, then you'd have to modify the acestream-launcher python file to be able to do so:
+
+`/usr/local/lib/python3.6/dist-packages/acestream_launcher/stream.py`
+
+the line: `def __init__(self, bin, host='<IP_of_docker_host_here>', port=6878, timeout=30):`
+
+Remember to expose port 6878 (AceStream Engine API port).
