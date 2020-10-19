@@ -29,3 +29,11 @@ If you want to run this docker container in a different machine (e.g. a server) 
 the line: `def __init__(self, bin, host='<IP_of_docker_host_here>', port=6878, timeout=30):`
 
 Remember to expose port 6878 (AceStream Engine API port).
+
+# Thank you
+
+I found about `conftest` to test the Dockerfile on this post https://cloudberry.engineering/article/dockerfile-security-best-practices/
+
+I used https://github.com/gbrindisi/dockerfile-security rego file to perform my conftest.
+
+Thank you https://twitter.com/gbrindisi !! :)

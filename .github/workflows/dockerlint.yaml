@@ -1,0 +1,16 @@
+name: Run Dockerfile lint
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run dockerlint
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Dockerfile lint
+        uses: brpaz/hadolint-action@master
