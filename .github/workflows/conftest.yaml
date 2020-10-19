@@ -1,0 +1,23 @@
+name: Run conftest
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run conftest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Conftest
+        uses: instrumenta/conftest-action@master
+        with:
+          policy: dockerfile-security.rego
+          files: Dockerfile

@@ -14,7 +14,7 @@ secrets_env = [
     "tkn"
 ]
 
-deny[msg] {    
+deny[msg] {
     input[i].Cmd == "env"
     val := input[i].Value
     contains(lower(val[_]), secrets_env[_])
