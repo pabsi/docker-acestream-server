@@ -19,6 +19,7 @@ To facilitate the use of this repo, I included a Makefile with some simple targe
 - `test` will run the container in the foreground
 - `shell` will run the container in the background, and attach to the shell
 - `push` will push to a remote repo (dockerhub)
+- `security-check` will run `conftest` with the .rego policy in the repo
 
 ## Extra
 

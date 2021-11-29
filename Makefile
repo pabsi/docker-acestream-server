@@ -12,7 +12,7 @@ build:
 	docker tag ${IMAGE_NAME}:${VERSION} ${IMAGE_NAME}:latest
 
 test:
-	docker run --rm --name ${APP_NAME} -P -it ${IMAGE_NAME}
+	docker run --rm --name ${APP_NAME} -P -v /dev/null:/dev/disk/by-id/nvme -it ${IMAGE_NAME}
 
 shell:
 	docker run --rm -d --name ${APP_NAME} -P -it ${IMAGE_NAME}
@@ -22,3 +22,6 @@ shell:
 push:
 	docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
 	docker push ${IMAGE_NAME}:${VERSION}
+
+security-check:
+	conftest test --policy dockerfile-security.rego  Dockerfile
